@@ -15,3 +15,8 @@ gc_content <- function(sequence){
 }
 print(gc_content(str_to_lower(elf_data$dnaseq)))
 
+#7
+source ('classify_ear_size.R')
+ear_length_classified <- get_size_class(elf_data$earlength)
+table_classified <- data.frame (elf_data$id, ear_length_classified,gc_content(str_to_lower(elf_data$dnaseq)))
+write.csv(table_classified)
